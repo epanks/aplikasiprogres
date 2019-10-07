@@ -10,7 +10,11 @@ class PaketController extends Controller
     public function index(Request $request)
     {
         if ($request->has('cari')) {
-            $data_paket = Paket::where('nmpaket', 'LIKE', '%' . $request->cari . '%')->orWhere('kdsatker', 'LIKE', '%' . $request->cari . "%")->get();
+            $data_paket = Paket::where('nmpaket', 'LIKE', '%' . $request->cari . '%')->orWhere('kdsatker', 'LIKE', '%' . $request->cari . "%")->paginate(10);
+            $jmlpaket = Paket::all();
+            $total = $data_paket->sum('pagurmp');
+            $avg_keu = $data_paket->avg('progres_keu');
+            $avg_fisik = $data_paket->avg('progres_fisik');
         } else {
             $jmlpaket = Paket::all();
             $data_paket = Paket::paginate(10);

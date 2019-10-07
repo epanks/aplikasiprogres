@@ -60,8 +60,8 @@
                 <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
     
                 <div class="info-box-content">
-                    <span class="info-box-text">New Members</span>
-                    <span class="info-box-number">2,000</span>
+                    <span class="info-box-text">Progres Fisik</span>
+                    <span class="info-box-number">{{number_format($jmlpaket->avg('progres_fisik'))}}</span>
                 </div>
                 <!-- /.info-box-content -->
                 </div>
@@ -127,8 +127,9 @@
                         <tr>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            
                             <td class="text-right">{{number_format($total)}}</td>
+                            <td></td>
                             <td class="text-right">{{number_format($avg_keu,2)}}</td>
                             <td class="text-right">{{number_format($avg_fisik,2)}}</td>
                             {{-- <td></td> --}}
