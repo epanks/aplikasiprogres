@@ -10,7 +10,7 @@
             <div class="row mt-5">
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box">
-                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>                
+                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-building"></i></span>                
                         <div class="info-box-content">
                             <span class="info-box-text">Jumlah Balai</span>
                             <span class="info-box-number">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-building"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">Jumlah Satker</span>
                                 <span class="info-box-number">{{$satker->count()}}<small>satker</small></span>
@@ -34,12 +34,12 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Sales</span>
-                            <span class="info-box-number">760</span>
+                            <span class="info-box-text">Jumlah Paket</span>
+                            <span class="info-box-number">{{$paket->count()}}<small>paket</small></span>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3">
+                {{-- <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
         
@@ -48,10 +48,10 @@
                             <span class="info-box-number">2,000</span>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="row">
-                <div class="col-lg-3 col-6">
+                {{-- <div class="col-lg-3 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>{{$paket->count()}}</h3>                        
@@ -62,8 +62,8 @@
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                </div>
-                <div class="col-lg-3 col-6">
+                </div> --}}
+                <div class="col-lg-4 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3><sup style="font-size: 20px">Rp</sup>{{number_format($paket->sum('pagurmp'))}}</h3>                        
@@ -78,7 +78,7 @@
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{$paket}}</h3>                        
+                            <h3>{{number_format($paket->avg('progres_keu'),2)}}</h3>                        
                             <p>Progres Keuangan</p>
                         </div>
                         <div class="icon">
@@ -90,7 +90,7 @@
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>{{$paket}}</h3>                        
+                            <h3>{{number_format($paket->avg('progres_fisik'),2)}}</h3>                        
                             <p>Progres Fisik</p>
                         </div>
                         <div class="icon">

@@ -104,7 +104,7 @@
                   </tr>
                   @foreach ($listpaket as $no => $str)
                   <tr>
-                    <td style="width: 10px"></a>{{++$no}}</td>
+                    <td style="width: 10px"></a>{{$str->id}}</td>
                     <td><a href="/satker/{{$str->id}}/profile">{{$str->nmpaket}}</td>
                     <td class="text-right">{{number_format($str->pagurmp)}}</td>
                     <td class="text-right">{{number_format($str->keuangan,2)}}</td>

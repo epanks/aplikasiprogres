@@ -49,7 +49,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44
+                <h3>{{number_format($listpaket->avg('progres_keu'),2)}}
                 <sup style="font-size: 20px">%</sup>
                 </h3>
 
@@ -70,7 +70,7 @@
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>
-                65
+                  {{number_format($listpaket->avg('progres_fisik'),2)}}
                 <sup style="font-size: 20px">%</sup>
                 </h3>
 
@@ -97,14 +97,26 @@
                     <th>No</th>
                     <th>Nama Wilayah</th>
                     <th>Pagu</th>
-                    <th>Progres </th>
+                    <th>Progres Keuangan</th>
+                    <th>Progres Fisik</th>
+                    <th>Modify</th>
                   </tr>
                   @foreach ($profilesatker as $no => $str)
                   <tr>
-                    <td style="width: 10px"></a>{{++$no}}</td>
+                    <td style="width: 10px"></a>{{$str->id}}</td>
                     <td><a href="#">{{$str->nmpaket}}</td>
-                    <td></td>
-                    <td></td>
+                    <td class="text-right">{{number_format($str->pagurmp)}}</td>
+                    <td class="text-right">{{number_format($str->progres_keu,2)}}</td>
+                    <td class="text-right">{{number_format($str->progres_keu,2)}}</td>
+                    <td>
+                      <a href="/paket/{{$str->id}}/edit">
+                        <i class="fa fa-edit blue"></i>
+                    </a>
+                    /
+                    <a href="/paket/{{$str->id}}/delete">
+                        <i class="fa fa-trash red" onclick="return confirm('Yakin data mau dihapus')"></i>
+                    </a>
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>

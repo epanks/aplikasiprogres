@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Excel;
+use App\Exports\PaketExport;
+// use Maatwebsite\Excel\Facades\Excel;
 use App\Paket;
 
 class PaketController extends Controller
@@ -53,5 +56,47 @@ class PaketController extends Controller
         $data_paket = Paket::find($id);
         $data_paket->delete($data_paket);
         return redirect('/paket')->with('sukses', 'Data berhasil dihapus');
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new PaketExport, 'paket.xlsx');
+    }
+
+    public function importExport()
+    {
+        return view('importExport');
+    }
+
+    public function downloadExcel($type)
+    {
+        $data = Paket::get()->toArray();
+
+        return Excel::create('itsolutionstuff_example', function ($excel) use ($data) {
+            $excel->sheet('mySheet', function ($sheet) use ($data) {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
+    }
+    public function importExcel(Request $request)
+    {
+        $request->validate([
+            'import_file' => 'required'
+        ]);
+
+        $path = $request->file('import_file')->getRealPath();
+        $data = Excel::load($path)->get();
+
+        if ($data->count()) {
+            foreach ($data as $key => $value) {
+                $arr[] = ['title' => $value->title, 'description' => $value->description];
+            }
+
+            if (!empty($arr)) {
+                Item::insert($arr);
+            }
+        }
+
+        return back()->with('success', 'Insert Record successfully.');
     }
 }
