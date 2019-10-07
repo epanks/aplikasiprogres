@@ -63,40 +63,9 @@ class PaketController extends Controller
         return Excel::download(new PaketExport, 'paket.xlsx');
     }
 
-    public function importExport()
+    public function import_excel()
     {
-        return view('importExport');
-    }
-
-    public function downloadExcel($type)
-    {
-        $data = Paket::get()->toArray();
-
-        return Excel::create('itsolutionstuff_example', function ($excel) use ($data) {
-            $excel->sheet('mySheet', function ($sheet) use ($data) {
-                $sheet->fromArray($data);
-            });
-        })->download($type);
-    }
-    public function importExcel(Request $request)
-    {
-        $request->validate([
-            'import_file' => 'required'
-        ]);
-
-        $path = $request->file('import_file')->getRealPath();
-        $data = Excel::load($path)->get();
-
-        if ($data->count()) {
-            foreach ($data as $key => $value) {
-                $arr[] = ['title' => $value->title, 'description' => $value->description];
-            }
-
-            if (!empty($arr)) {
-                Item::insert($arr);
-            }
-        }
-
-        return back()->with('success', 'Insert Record successfully.');
+        $data_import = Paket::table('paket')->orderBy('id', 'asc') > get();
+        return view('paket_import', compact('data_import'));
     }
 }
