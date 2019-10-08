@@ -7,6 +7,8 @@ use Excel;
 use App\Exports\PaketExport;
 // use Maatwebsite\Excel\Facades\Excel;
 use App\Paket;
+use App\Satker;
+use App\Balai;
 
 class PaketController extends Controller
 {
@@ -48,7 +50,7 @@ class PaketController extends Controller
         ]);
         $data_paket = Paket::find($id);
         $data_paket->update($request->all());
-        return redirect('/paket')->with('sukses', 'Data berhasil diupdate');
+        return redirect('/satker')->with('sukses', 'Data berhasil diupdate');
     }
 
     public function delete($id)
@@ -67,5 +69,15 @@ class PaketController extends Controller
     {
         $data_import = Paket::table('paket')->orderBy('id', 'asc') > get();
         return view('paket_import', compact('data_import'));
+    }
+
+    public function profile($id)
+    {
+        $profile_paket = Paket::find($id);
+        $dt = $profile_paket->kdsatker;
+        $data_balai = $dt;
+
+        //dd($data_balai);
+        return view('paket.profile', compact('profile_paket', 'data_balai'));
     }
 }

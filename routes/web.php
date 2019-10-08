@@ -32,5 +32,6 @@ Route::post('/paket/create', 'PaketController@create');
 Route::get('/paket/{id}/edit', 'PaketController@edit');
 Route::post('/paket/{id}/update', 'PaketController@update');
 Route::get('/paket/{id}/delete', 'PaketController@delete');
+Route::get('/paket/{id}/profile', 'PaketController@profile');
 
 Route::get('/paket/export_excel', 'PaketController@export_excel');

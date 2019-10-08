@@ -18,13 +18,13 @@ class SatkerController extends Controller
         return view('satker.index', compact('data_satker'));
     }
 
-    public function satker(Balai $balai)
-    {
-        $dtsatker = Balai::find($balai);
+    // public function satker(Balai $balai)
+    // {
+    //     $dtsatker = Balai::find($balai);
 
-        //dd($satker);
-        return view('satker.satker', compact('dtsatker'));
-    }
+    //     //dd($satker);
+    //     return view('satker.satker', compact('dtsatker'));
+    // }
 
     public function profile($id)
     {

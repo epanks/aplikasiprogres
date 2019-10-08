@@ -104,7 +104,7 @@
                   @foreach ($profilesatker as $no => $str)
                   <tr>
                     <td style="width: 10px"></a>{{$str->id}}</td>
-                    <td><a href="#">{{$str->nmpaket}}</td>
+                    <td><a href="/paket/{{$str->id}}/profile">{{$str->nmpaket}}</td>
                     <td class="text-right">{{number_format($str->pagurmp)}}</td>
                     <td class="text-right">{{number_format($str->progres_keu,2)}}</td>
                     <td class="text-right">{{number_format($str->progres_keu,2)}}</td>
