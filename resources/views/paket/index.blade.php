@@ -48,7 +48,7 @@
     
                 <div class="info-box-content">
                     <span class="info-box-text">Progres Keuangan</span>
-                    <span class="info-box-number">{{number_format($jmlpaket->avg('progres_keu'))}}</span>
+                    <span class="info-box-number">{{number_format($jmlpaket->avg('progres_keu'),2)}}</span>
                 </div>
                 <!-- /.info-box-content -->
                 </div>
@@ -61,7 +61,7 @@
     
                 <div class="info-box-content">
                     <span class="info-box-text">Progres Fisik</span>
-                    <span class="info-box-number">{{number_format($jmlpaket->avg('progres_fisik'))}}</span>
+                    <span class="info-box-number">{{number_format($jmlpaket->avg('progres_fisik'),2)}}</span>
                 </div>
                 <!-- /.info-box-content -->
                 </div>

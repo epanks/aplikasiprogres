@@ -29,10 +29,10 @@
                             
                         </tr>
 
-                    @foreach ($data_balai as $balai)  
+                    @foreach ($data_balai as $no => $balai)  
                     
                         <tr>
-                            <td>{{$balai->id}}</td>
+                            <td>{{++$no}}</td>
                             <td><a href="/balai/{{$balai->id}}/satker">{{$balai->nmbalai}}</td>
                             <td></td>
                             <td></td>

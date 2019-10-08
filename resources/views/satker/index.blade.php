@@ -19,28 +19,28 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Satker</th>
-                            <th>Nama Paket</th>
+                            {{-- <th>Nama Paket</th>
                             <th>Pagu</th>
                             <th>Rencana Keuangan</th>
                             <th>Rencana Fisik</th>
                             <th>Progres Keuangan</th>
                             <th>Progres Fisik</th>
-                            <th>Satker ID</th>
+                            <th>Satker ID</th> --}}
                             
                         </tr>
 
-                    @foreach ($data_satker as $satker)  
+                    @foreach ($data_satker as $no => $satker)  
                     
                         <tr>
-                            <td>{{$satker->id}}</td>
+                            <td>{{++$no}}</td>
                             <td><a href="/satker/{{$satker->id}}/profile">{{$satker->nmsatker}}</td>
                             <td></td>
+                            {{-- <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>                            
+                            <td></td>                             --}}
                         </tr>
                         
                         @endforeach

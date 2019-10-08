@@ -11,9 +11,9 @@ class BalaiController extends Controller
     public function index(Request $request)
     {
         if ($request->has('cari')) {
-            $data_balai = Balai::where('nmbalai', 'LIKE', '%' . $request->cari . '%')->paginate(10);
+            $data_balai = Balai::where('nmbalai', 'LIKE', '%' . $request->cari . '%')->paginate(16);
         } else {
-            $data_balai = Balai::paginate(10);
+            $data_balai = Balai::paginate(16);
         }
         return view('balai.index', compact('data_balai'));
     }

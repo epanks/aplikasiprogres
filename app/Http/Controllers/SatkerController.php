@@ -11,9 +11,9 @@ class SatkerController extends Controller
     public function index(Request $request)
     {
         if ($request->has('cari')) {
-            $data_satker = Satker::where('nmsatker', 'LIKE', '%' . $request->cari . '%')->orWhere('kdsatker', 'LIKE', '%' . $request->cari . "%")->paginate(10);
+            $data_satker = Satker::where('nmsatker', 'LIKE', '%' . $request->cari . '%')->orWhere('kdsatker', 'LIKE', '%' . $request->cari . "%")->paginate(20);
         } else {
-            $data_satker = Satker::paginate(10);
+            $data_satker = Satker::paginate(20);
         }
         return view('satker.index', compact('data_satker'));
     }
