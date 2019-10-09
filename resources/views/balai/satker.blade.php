@@ -87,7 +87,45 @@
           </div>
           <!-- ./col -->
         </div>
-      <ul class="list-group list-group-unbordered">
+        <p class="text-muted text-center">Data Satker</p>
+        <ul class="list-group list-group-unbordered">
+          <div class="box">
+
+              <!-- /.box-header -->
+              <div class="box-body no-padding">
+                <table class="table table-striped">
+                  <tbody><tr>
+                    <th>No</th>
+                    <th>Nama Satker</th>
+                    <th>Pagu</th>
+                    <th>Penyerapan Keuangan </th>
+                    <th>Progres Keuangan </th>
+                    <th>Progres Fisik</th>
+                    <th>Modify</th>
+                  </tr>
+                  @foreach ($dtsatker as $no => $str)
+                  <tr>
+                    <td style="width: 10px"></a>{{$str->id}}</td>
+                    <td><a href="/satker/{{$str->id}}/profile">{{$str->nmsatker}}</td>
+                    {{-- <td class="text-right">{{number_format($str->pagurmp)}}</td>
+                    <td class="text-right">{{number_format($str->keuangan,2)}}</td>
+                    <td class="text-right">{{number_format($str->progres_keu,2)}}</td>
+                    <td class="text-right">{{number_format($str->progres_fisik,2)}}</td> --}}
+                    <td>
+                      
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+              {{-- {{$listpaket->links()}} --}}
+              </div>
+              <!-- /.box-body -->
+            </div>
+      </ul>
+      <p class="text-muted text-center">Data Paket</p>
+
+        <ul class="list-group list-group-unbordered">
           <div class="box">
 
               <!-- /.box-header -->
