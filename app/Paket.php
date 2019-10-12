@@ -10,8 +10,14 @@ class Paket extends Model
     protected $fillable = [
         'kdsatker', 'nmpaket', 'pagurmp', 'keuangan', 'progres_keu', 'progres_fisik', 'ta'
     ];
+
     public function satker()
     {
         return $this->belongsTo(Satker::class);
+    }
+
+    public function satuan()
+    {
+        return $this->hasOne(Satuan::class);
     }
 }

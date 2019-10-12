@@ -9,6 +9,9 @@ use App\Exports\PaketExport;
 use App\Paket;
 use App\Satker;
 use App\Balai;
+use App\Satuan;
+use App\Satoutput;
+use App\Satoutcome;
 
 class PaketController extends Controller
 {
@@ -75,9 +78,12 @@ class PaketController extends Controller
     {
         $profile_paket = Paket::find($id);
         $dt = $profile_paket->kdsatker;
+        $sat1 = Satuan::find($id)->satuanoutput;
+        $sat2 = Satuan::find($id)->satuanoutcome;
+        $sat = $sat1;
         $data_balai = $dt;
 
-        //dd($data_balai);
-        return view('paket.profile', compact('profile_paket', 'data_balai'));
+        dd($sat2);
+        return view('paket.profile', compact('profile_paket', 'data_balai', 'sat', 'sat2'));
     }
 }

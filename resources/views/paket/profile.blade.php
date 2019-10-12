@@ -28,9 +28,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{number_format($profile_paket->progres_keu,2)}}<sup style="font-size: 20px">%</sup></h3>
+                <h3><sup style="font-size: 20px">Rp</sup>{{number_format($profile_paket->progres_keu,2)}}</h3>
 
-                <p>Progres Keuangan</p>
+                <p>Keuangan</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -43,7 +43,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{number_format($profile_paket->progres_fisik,2)}}<sup style="font-size: 20px">%</sup></h3>
+                <h3>{{number_format($profile_paket->progres_keu,2)}}<sup style="font-size: 20px">%</sup></h3>
                 
                 </h3>
 
@@ -61,7 +61,7 @@
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>
-                  
+                  {{number_format($profile_paket->progres_fisik,2)}}
                 <sup style="font-size: 20px">%</sup>
                 </h3>
 
@@ -83,8 +83,8 @@
               <div class="info-box-content">
                 <span class="info-box-text">Output</span>
                 <span class="info-box-number">
-                  10
-                  <small>%</small>
+                  {{number_format($profile_paket->trgoutput,2)}}
+                <small>{{$sat->nmsatoutput}}</small>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -98,7 +98,9 @@
 
               <div class="info-box-content">
                 <span class="info-box-text"></span>Outcome</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number">{{number_format($profile_paket->trgoutcome,2)}}
+                    <small>{{$sat2->nmsatoutcome}}</small>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -128,7 +130,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Kode Output</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number">{{number_format($profile_paket->kdoutput,2)}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
